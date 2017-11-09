@@ -1,0 +1,86 @@
+Project Name: Activity Dashboard
+Primary Business Stakeholder: Kevin O’Keefe
+Target release date: N/A
+Revenue Opportunity: N/A
+
+Business Case: SmartFile needs to deliver better analytics to admins above and beyond our current advanced search and limited filtering options. SmartFile currently offers a visual analytics tool called SmartStats to on-prem customers, but we are neglecting our cloud customers as well as on-prem customers that just need something quick. This activity dashboard can be thought of as a SmartStats-light version. The purpose of developing an activity dashboard is to provide better tools for site admins to view, monitor, and diagnose file and user actions. The long term benefit for this dashboard is to also incorporate statistics from connected storage sources (cloud and on-prem servers), with the ability to view activity specific to each one. By providing a visual dashboard, we also begin to catch up to competitors like Egnyte and ownCloud.
+
+Goal: The goal for the dashboard is to report back as much data as we can in a comprehensive way that is easy to understand and beneficial for site administrators. The goal would be for the dashboard elements to be interactive and have the ability to query against our data sources for in-depth analysis.
+
+Prerequisite BDS or work: I’m not sure if all of the functionality exists in ElasticSearch and if we have all of the queries in our database, but I’m going to assume we have a way to gather them if we need to. I don’t think I’m reaching too far with my assumptions with what I’ve seen playing around in SmartStats (Kibana).
+
+Customer interfaces to consider:
+Web UI
+
+Persona:
+Cloud (Bus, Bus+, Unlimited)
+Cloud Reseller
+On-Premise
+On-Premise Reseller
+Developer
+SMB
+
+Users Stories:
+User - N/A
+Manager - N/A
+Admin - As an admin, I expect to click the activity tab and see a dashboard containing multiple data points that I can begin to monitor and interact with. I expect that I can click into some of the dashboard sections and get filtered results that are listed on other pages or in a traditional activity list. I expect that I can modify the dashboard sections and that it will remember my modifications as user preferences for any future sessions. I also expect that I can export this dashboard into a PDF report.
+
+Non-functional Requirements:
+Features must operate without access to the internet
+Must be a site feature that can be enabled or disabled
+Must replace current activity list and load when the activity tab is clicked
+Must be a responsive layout/design that works on mobile
+Must be able to interact with the different graphs and lists through filter options available
+Must be able to export a PDF report of the current dashboard
+Must be able to report back against predefined date ranges (much like Kibana, last 15 minutes, last 24 hours, last 7 days, last 30 days, last 6 months, and possibly more)
+
+Functional Requirements:
+Must be able to report sum totals for
+Storage
+SmartFile
+For each Cloud Connectors (Dropbox, GDrive, OneDrive, etc.)
+For each Server Connector (FTP, SMB, ISCSI, etc.)
+Transfer IN
+Transfer OUT
+Files
+File types (pdf, doc, xls, ppt, jpg, mp4, etc.)
+For each Cloud Connectors (Dropbox, GDrive, OneDrive, etc.)
+For each Server Connector (FTP, SMB, ISCSI, etc.)
+Users
+Groups
+Shares
+Unsecure (normal)
+Secure (password enabled)
+Upload Enabled
+Automation Rules
+Types of Rules (User, Path, Group)
+Connectors
+For each Cloud Connectors (Dropbox, GDrive, OneDrive, etc.)
+For each Server Connector (FTP, SMB, ISCSI, etc.)
+Must be able to report totals per a range of dates for any combination of the following:
+Per Connection Type - All connections, HTTP, HTTPS, FTP, SFTP, FTPS, WebDAV, API, oAuth
+For All Actions
+User Login, Logout, Created, Edited, Removed
+Path Written, Move, Read, Copy, Removed, Created
+Group Created, Edited, Removed
+Site Created, Edited, Removed
+Link Created, Edited, Removed
+Connector Created, Removed
+Per User (Disregard Groups? Not sure we can track these items for groups...)
+For All Actions
+User Login, Logout, Created, Edited, Removed
+Path Written, Move, Read, Copy, Removed, Created
+Group Created, Edited, Removed
+Site Created, Edited, Removed
+Link Created, Edited, Removed
+Connector Created, Removed
+Per Path
+For All Actions
+Path Written, Move, Read, Copy, Removed, Created
+Group Created, Edited, Removed
+Site Created, Edited, Removed
+Link Created, Edited, Removed
+Connector Created, Removed
+
+Screenshots:
+
